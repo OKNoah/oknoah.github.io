@@ -1,6 +1,9 @@
 import React, {Component, PropTypes} from 'react'
+import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
 import {Link} from 'react-router'
+import Window from './Window'
+import Add from './Crews-Crews-Add'
 
 import {addCrew, deleteCrew} from 'redux/modules/crews'
 
@@ -11,7 +14,7 @@ import classes from './Crews-Crews.scss'
     crews: state.crews.data,
     user: state.auth.data
   }),
-  dispatch => ({
+  dispatch => bindActionCreators({
     addCrew,
     deleteCrew
   }, dispatch)
@@ -19,7 +22,20 @@ import classes from './Crews-Crews.scss'
 export default class CrewsList extends Component {
   static propTypes = {
     crews: PropTypes.array,
-    user: PropTypes.object
+    user: PropTypes.object,
+    addCrew: PropTypes.func
+  }
+
+  constructor (props) {
+    super(props)
+    this.state = {
+      showAddModal: false
+    }
+  }
+
+  addModalHandler () {
+    console.log('fuckc')
+    this.setState({showAddModal: !this.state.showAddModal})
   }
 
   render () {
@@ -32,13 +48,26 @@ export default class CrewsList extends Component {
             <div key={index}>
               <Link to={'/crews/' + crew.slug}>
                 {crew.name}
-                {user &&
-                  <div>Hello!</div>
-                }
               </Link>
             </div>
           )
         })}
+        {user &&
+          <div
+            onClick={::this.addModalHandler}
+          >
+            ➕
+          </div>
+        }
+        {this.state.showAddModal &&
+          <Window
+            dismiss={::this.addModalHandler}
+          >
+            <Add
+              onSubmit={this.props.addCrew}
+            />
+          </Window>
+        }
       </div>
     )
   }

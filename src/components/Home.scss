@@ -2,6 +2,8 @@
 
 .content {
   max-width: $desktop-width;
+  display: flex;
+  justify-content: center;
 }
 
 .heroWrapper {

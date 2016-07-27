@@ -5,7 +5,7 @@ import {connect} from 'react-redux'
 import classes from './Crews.scss'
 
 import CrewsList from './Crews-Crews'
-import Members from './Crews-Members'
+// import Members from './Crews-Members'
 
 import {getCrews, addCrew, deleteCrew} from 'redux/modules/crews'
 import {getCrewMembers, getMembers} from 'redux/modules/members'
@@ -54,7 +54,7 @@ export default class Crews extends Component {
     if (crew) {
       this.props.getCrewMembers(crew)
     } else if (!crew) {
-      // this.props.getMembers()
+      this.props.getMembers()
     }
   }
 

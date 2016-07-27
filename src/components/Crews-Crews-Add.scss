@@ -1,0 +1,6 @@
+@import "../theme/base.scss";
+
+.submit {
+  @extend .button;
+  color: $green;
+}
