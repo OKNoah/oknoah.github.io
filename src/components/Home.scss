@@ -1,0 +1,24 @@
+@import "../theme/base.scss";
+
+.content {
+  max-width: $desktop-width;
+}
+
+.heroWrapper {
+  margin-top: -105px;
+  padding-top: 105px;
+  width: 100%;
+  flex-grow: 99999;
+  background-image: url('../../static/main-hero.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 700px;
+  display: flex;
+  justify-content: center;
+}
+
+.mainHero {
+  color: white;
+  width: $desktop-width;
+}

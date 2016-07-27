@@ -1,0 +1,9 @@
+@import "../theme/base.scss";
+
+.crews {
+  width: $desktop-width;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 120px;
+}

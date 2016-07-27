@@ -1,0 +1,13 @@
+@import "../theme/base.scss";
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  flex-direction: column;
+}
+
+.members {
+  width: $desktop-width;
+}
