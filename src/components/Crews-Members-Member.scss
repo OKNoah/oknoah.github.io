@@ -1,0 +1,21 @@
+@import "../theme/base.scss";
+
+.member {
+  height: 185px;
+  width: 209px;
+}
+
+.actionContainer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.action {
+  cursor: pointer;
+  color: $highlight;
+}
+
+.actionDelete {
+  @extend .action;
+  color: red;
+}

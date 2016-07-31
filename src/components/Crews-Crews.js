@@ -1,13 +1,14 @@
 import React, {Component, PropTypes} from 'react'
 import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
-import {Link} from 'react-router'
 import Window from './Window'
 import Add from './Crews-Crews-Add'
+import Crew from './Crews-Crews-Crew'
 
 import {addCrew, deleteCrew} from 'redux/modules/crews'
 
 import classes from './Crews-Crews.scss'
+import modalClasses from './Crews-Crews-Add.scss'
 
 @connect(
   state => ({
@@ -34,8 +35,14 @@ export default class CrewsList extends Component {
   }
 
   addModalHandler () {
-    console.log('fuckc')
     this.setState({showAddModal: !this.state.showAddModal})
+  }
+
+  addCrewHandler (fields) {
+    this.props.addCrew(fields)
+    .then(() => {
+      this.addModalHandler()
+    })
   }
 
   render () {
@@ -43,13 +50,17 @@ export default class CrewsList extends Component {
 
     return (
       <div className={classes.crews}>
+        <Crew
+          name="All"
+          slug=""
+        />
         { crews.map((crew, index) => {
           return (
-            <div key={index}>
-              <Link to={'/crews/' + crew.slug}>
-                {crew.name}
-              </Link>
-            </div>
+            <Crew
+              key={index}
+              name={crew.name}
+              slug={crew.slug}
+            />
           )
         })}
         {user &&
@@ -62,6 +73,8 @@ export default class CrewsList extends Component {
         {this.state.showAddModal &&
           <Window
             dismiss={::this.addModalHandler}
+            className={modalClasses.crewModal}
+            overlayClassName={modalClasses.crewModalOverlay}
           >
             <Add
               onSubmit={this.props.addCrew}

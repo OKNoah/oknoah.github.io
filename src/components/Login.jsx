@@ -11,18 +11,26 @@ export default class Login extends Component {
     onSubmit: PropTypes.func,
     handleSubmit: PropTypes.func,
     onToggleRegistering: PropTypes.func,
-    registering: PropTypes.bool
+    registering: PropTypes.bool,
+    dismiss: PropTypes.func
+  }
+
+  loginHandler (fields) {
+    this.props.onSubmit(fields)
+    .then(() => {
+      this.props.dismiss()
+    })
   }
 
   render () {
-    const {handleSubmit, onSubmit, registering, onToggleRegistering} = this.props
+    const {handleSubmit, registering, onToggleRegistering} = this.props
 
     return (
       <div
         id="Login"
       >
         <h1>{ !registering ? 'Login' : 'Register' }</h1>
-        <form onSubmit={ handleSubmit(onSubmit) }>
+        <form onSubmit={ handleSubmit(::this.loginHandler) }>
           <div className="form-group">
             <label htmlFor="">Email</label>
             <Field

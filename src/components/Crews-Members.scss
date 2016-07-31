@@ -1,0 +1,28 @@
+@import "../theme/base.scss";
+
+.addContainer {
+  display: flex;
+  height: 185px;
+  width: 209px;
+  justify-content: center;
+  align-items: center;
+}
+
+.members {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.newMemberButton {
+  @extend .button;
+  color: $highlight;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.plus {
+  font-size: 8em;
+}

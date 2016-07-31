@@ -8,7 +8,7 @@ import CrewsList from './Crews-Crews'
 import Members from './Crews-Members'
 
 import {getCrews, addCrew, deleteCrew} from 'redux/modules/crews'
-import {getCrewMembers, getMembers} from 'redux/modules/members'
+import {getCrewMembers, getMembers, leaveCrew, addMember, deleteMember, joinCrew} from 'redux/modules/members'
 
 @connect(
   state => ({
@@ -21,7 +21,11 @@ import {getCrewMembers, getMembers} from 'redux/modules/members'
     addCrew,
     deleteCrew,
     getCrewMembers,
-    getMembers
+    getMembers,
+    leaveCrew,
+    joinCrew,
+    addMember,
+    deleteMember
   }, dispatch)
 )
 export default class Crews extends Component {
@@ -34,7 +38,11 @@ export default class Crews extends Component {
     deleteCrew: PropTypes.func,
     getCrewMembers: PropTypes.func,
     getMembers: PropTypes.func,
-    user: PropTypes.object
+    user: PropTypes.object,
+    joinCrew: PropTypes.func,
+    leaveCrew: PropTypes.func,
+    addMember: PropTypes.func,
+    deleteMember: PropTypes.func
   }
 
   componentDidMount () {
@@ -54,7 +62,7 @@ export default class Crews extends Component {
     if (crew) {
       this.props.getCrewMembers(crew)
     } else if (!crew) {
-      // this.props.getMembers()
+      this.props.getMembers()
     }
   }
 
@@ -65,7 +73,14 @@ export default class Crews extends Component {
       <div className={classes.wrapper}>
         <CrewsList crews={crews} />
         <div className={classes.members}>
-          <Members members={members} />
+          <Members
+            members={members}
+            params={this.props.params}
+            onLeaveCrew={this.props.leaveCrew}
+            onJoinCrew={this.props.joinCrew}
+            onAddMember={this.props.addMember}
+            onDeleteMember={this.props.deleteMember}
+          />
         </div>
       </div>
     )
