@@ -1,6 +1,21 @@
 @import "../theme/base.scss";
 
+.addCrewForm {
+  display: flex;
+  flex-direction: column;
+}
+
 .submit {
   @extend .button;
   color: $green;
+}
+
+.crewModalOverlay {
+  @extend .modalOverlay;
+}
+
+.crewModal {
+  @extend .modal;
+  height: 200px;
+  width: 400px;
 }

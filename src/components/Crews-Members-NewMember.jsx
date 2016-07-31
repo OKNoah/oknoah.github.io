@@ -1,13 +1,15 @@
 import React, {Component, PropTypes} from 'react'
+
 import {Field, reduxForm} from 'redux-form'
 
-import classes from './Crews-Crews-Add.scss'
+import classes from './Crews-Members-NewMember.scss'
 
 @reduxForm({
-  form: 'addCrew'
+  form: 'newMember'
 })
-export default class Add extends Component {
+export default class NewMember extends Component {
   static propTypes = {
+    onAddMember: PropTypes.func,
     onSubmit: PropTypes.func,
     handleSubmit: PropTypes.func
   }
@@ -17,24 +19,29 @@ export default class Add extends Component {
 
     return (
       <form
-        className={classes.addCrewForm}
         onSubmit={handleSubmit(onSubmit)}
+        className={classes.newMemberForm}
       >
-        <label>Crew name</label>
+        <h2>Add new member</h2>
+        <label>Name</label>
         <Field
           name="name"
           component="input"
         />
-        <label>Crew description</label>
+        <label>Description</label>
         <Field
           name="description"
           component="textarea"
         />
+        <label>Website URL</label>
+        <Field
+          name="website"
+          component="input"
+        />
         <button
           type="submit"
-          className={ classes.submit }
         >
-          Submit
+          Create new user
         </button>
       </form>
     )

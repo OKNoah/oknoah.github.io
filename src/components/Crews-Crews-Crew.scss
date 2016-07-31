@@ -1,0 +1,13 @@
+.crew {
+  display: flex;
+  justify-content: center;
+  width: 150px;
+  word-break: break-all;
+  hyphens: auto;
+}
+
+.deleteIcon {
+  color: red;
+  cursor: pointer;
+  margin-right: 7px;
+}

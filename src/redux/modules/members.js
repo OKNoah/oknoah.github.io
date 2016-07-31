@@ -33,6 +33,17 @@ export default function reducer (state = initialState, action = {}) {
         ...initialState
       }
 
+    case ADD_MEMBER_SUCCESS:
+      return {
+        ...state,
+        data: [...state.data, action.result.data]
+      }
+
+    case DELETE_MEMBER_SUCCESS:
+      return {
+        ...action.result
+      }
+
     case GET_MEMBERS_SUCCESS:
       return {
         ...action.result
@@ -50,7 +61,7 @@ export default function reducer (state = initialState, action = {}) {
 
     case JOIN_CREW_SUCCESS:
       return {
-        ...action.result
+        ...state
       }
 
     case LEAVE_CREW_SUCCESS:
@@ -96,10 +107,10 @@ export function addMember ({name, description, website}) {
   }
 }
 
-export function deleteMember ({member}) {
+export function deleteMember (member) {
   return {
     types: [DELETE_MEMBER, DELETE_MEMBER_SUCCESS, DELETE_MEMBER_FAILURE],
-    promise: (client) => client.delete('/member/' + member)
+    promise: (client) => client.del('/member/' + member)
   }
 }
 
@@ -117,6 +128,6 @@ export function leaveCrew ({member, crew}) {
 
   return {
     types: [LEAVE_CREW, LEAVE_CREW_FAILURE, LEAVE_CREW_SUCCESS],
-    promise: (client) => client.delete(endpoint)
+    promise: (client) => client.del(endpoint)
   }
 }

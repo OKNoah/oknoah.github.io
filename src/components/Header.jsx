@@ -8,6 +8,7 @@ import Login from './Login'
 import {login, register, logout, getUser} from 'redux/modules/auth'
 
 import classes from './Header.scss'
+import loginClasses from './Login.scss'
 
 import logo from '../../static/logo.png'
 
@@ -96,6 +97,7 @@ export default class Header extends Component {
           <Window
             params={params}
             dismiss={::this.dismissModalHandler}
+            className={loginClasses.modal}
           >
             <Login
               onSubmit={this.props.login}

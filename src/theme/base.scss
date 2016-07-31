@@ -1,8 +1,10 @@
-$green: #6CFF74;
+$green: #70D03D;
 $blue: #6B86FF;
 $red: #FF119F;
 $yellow: #FFEA74;
 $purple: #D511FF;
+
+$highlight: $green;
 
 $desktop-width: 960px;
 
@@ -18,6 +20,9 @@ $desktop-width: 960px;
   background-color: rgba(0,0,0,0.3);
   display: flex;
   z-index: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .modal {

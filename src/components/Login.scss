@@ -1,27 +1,8 @@
 @import "../theme/base.scss";
 
-.modalBackdrop {
-  position: fixed;
-  width: 100%;
-  top: 0px;
-  left: 0px;
-  right: 0px;
-  bottom: 0px;
-  background-color: rgba(0,0,0,0.3);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 9997;
-  height: 100%;
-}
-
 .modal {
-  padding: 20px 20px 44px 20px;
   width: 450px;
-  border-radius: 10px;
-  background: white;
-  z-index: 9998;
-  position: relative;
+  height: 300px;
 }
 
 .dialogButtons {

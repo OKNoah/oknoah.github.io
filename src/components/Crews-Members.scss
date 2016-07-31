@@ -1,0 +1,31 @@
+@import "../theme/base.scss";
+
+.addContainer {
+  display: flex;
+  width: 240px;
+  padding: 10px;
+  height: 250px;
+  justify-content: center;
+  align-items: center;
+}
+
+.members {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.newMemberButton {
+  @extend .button;
+  color: $highlight;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  line-height: 75px;
+}
+
+.plus {
+  font-size: 8em;
+}
