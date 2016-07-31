@@ -22,6 +22,10 @@ export default class ApiClient {
           request.set(headers)
         }
 
+        if (__CLIENT__ && window.localStorage.authToken) {
+          request.set({Authorization: window.localStorage.authToken})
+        }
+
         if (__SERVER__ && req.get('cookie')) {
           request.set('cookie', req.get('cookie'));
         }

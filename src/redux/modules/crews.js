@@ -10,10 +10,6 @@ const DELETE_CREW = 'redux/modules/crew/DELETE_CREW'
 const DELETE_CREW_SUCCESS = 'redux/modules/crew/DELETE_CREW_SUCCESS'
 const DELETE_CREW_FAILURE = 'redux/modules/crew/DELETE_CREW_FAILURE'
 
-const GET_MEMBERS_CREWS = 'redux/modules/crew/GET_MEMBERS_CREWS'
-const GET_MEMBERS_CREWS_SUCCESS = 'redux/modules/crew/GET_MEMBERS_CREWS_SUCCESS'
-const GET_MEMBERS_CREWS_FAILURE = 'redux/modules/crew/GET_MEMBERS_CREWS_FAILURE'
-
 const initialState = {
   data: [],
   loaded: false
@@ -44,11 +40,6 @@ export default function reducer (state = initialState, action = {}) {
         ...action.result
       }
 
-    case GET_MEMBERS_CREWS_SUCCESS:
-      return {
-        ...action.result
-      }
-
     default:
       return state;
   }
@@ -75,10 +66,5 @@ export const addCrew = ({name, description}) => ({
 
 export const deleteCrew = (crew) => ({
   types: [DELETE_CREW, DELETE_CREW_SUCCESS, DELETE_CREW_FAILURE],
-  promise: (client) => client.delete('/crew/' + crew)
-})
-
-export const getMembersCrews = (member) => ({
-  types: [GET_MEMBERS_CREWS, GET_MEMBERS_CREWS_SUCCESS, GET_MEMBERS_CREWS_FAILURE],
-  promise: (client) => client.get('/member/' + member + '/crew')
+  promise: (client) => client.del('/crew/' + crew)
 })

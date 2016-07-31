@@ -1,5 +1,11 @@
 @import "../theme/base.scss";
 
+.plus {
+  color: $highlight;
+  font-size: 1.25em;
+  cursor: pointer;
+}
+
 .crews {
   width: $desktop-width;
   display: flex;
