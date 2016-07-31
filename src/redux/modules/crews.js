@@ -66,5 +66,5 @@ export const addCrew = ({name, description}) => ({
 
 export const deleteCrew = (crew) => ({
   types: [DELETE_CREW, DELETE_CREW_SUCCESS, DELETE_CREW_FAILURE],
-  promise: (client) => client.delete('/crew/' + crew)
+  promise: (client) => client.del('/crew/' + crew)
 })

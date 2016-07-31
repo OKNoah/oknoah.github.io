@@ -24,7 +24,9 @@ export default class CrewsList extends Component {
   static propTypes = {
     crews: PropTypes.array,
     user: PropTypes.object,
-    addCrew: PropTypes.func
+    addCrew: PropTypes.func,
+    deleteCrew: PropTypes.func,
+    onGetCrews: PropTypes.func
   }
 
   constructor (props) {
@@ -45,6 +47,17 @@ export default class CrewsList extends Component {
     })
   }
 
+  deleteCrewHandler (crew) {
+    const confirmed = confirm("Are you sure you want to delete this crew? It will not delete any of the members in it, you'll have to remove them individually.")
+
+    if (confirmed) {
+      this.props.deleteCrew(crew)
+      .then(() => {
+        this.props.onGetCrews()
+      })
+    }
+  }
+
   render () {
     const {crews, user} = this.props
 
@@ -60,6 +73,7 @@ export default class CrewsList extends Component {
               key={index}
               name={crew.name}
               slug={crew.slug}
+              onDeleteCrew={::this.deleteCrewHandler}
             />
           )
         })}
@@ -67,7 +81,7 @@ export default class CrewsList extends Component {
           <div
             onClick={::this.addModalHandler}
           >
-            ➕
+            <span className={classes.plus}>+</span>
           </div>
         }
         {this.state.showAddModal &&

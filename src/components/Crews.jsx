@@ -46,19 +46,18 @@ export default class Crews extends Component {
   }
 
   componentDidMount () {
+    this.props.getCrews()
     this.getAssets()
   }
 
   componentDidUpdate (oldProps) {
-    if (oldProps.params !== this.props.params) {
+    if (oldProps.params.crew !== this.props.params.crew) {
       this.getAssets()
     }
   }
 
   getAssets () {
     const {crew} = this.props.params
-
-    this.props.getCrews()
     if (crew) {
       this.props.getCrewMembers(crew)
     } else if (!crew) {

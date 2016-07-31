@@ -1,8 +1,9 @@
 @import "../theme/base.scss";
 
 .member {
-  height: 185px;
-  width: 209px;
+  width: 240px;
+  padding: 10px;
+  height: 250px;
 }
 
 .actionContainer {
@@ -11,8 +12,9 @@
 }
 
 .action {
+  padding: 5px;
   cursor: pointer;
-  color: $highlight;
+  color: grey;
 }
 
 .actionDelete {

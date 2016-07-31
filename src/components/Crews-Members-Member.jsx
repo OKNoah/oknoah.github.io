@@ -106,7 +106,7 @@ export default class Member extends Component {
               className={classes.actionDelete}
               onClick={crew ? ::this.leaveCrewHandler : ::this.deleteMember}
             >
-              Ⓧ
+              <i className="fa fa-trash" alt="Edit member's crews" />
             </div>
           </div>
         }
