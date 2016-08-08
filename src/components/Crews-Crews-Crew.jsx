@@ -9,6 +9,7 @@ import classes from './Crews-Crews-Crew.scss'
 }))
 export default class Crew extends Component {
   static propTypes = {
+    active: PropTypes.bool,
     name: PropTypes.string,
     slug: PropTypes.string,
     user: PropTypes.object,
@@ -20,10 +21,10 @@ export default class Crew extends Component {
   }
 
   render () {
-    const {name, slug} = this.props;
+    const {name, slug, active} = this.props
 
     return (
-      <div className={classes.crew}>
+      <div className={active ? classes.crewActive : classes.crew}>
         {this.props.user &&
           <i
             className={classes.deleteIcon + ' fa fa-trash'}

@@ -1,26 +1,40 @@
 @import "../theme/base.scss";
 
-.content {
-  max-width: $desktop-width;
+.wrapper {
+  width: 100%;
   display: flex;
   justify-content: center;
+  flex-grow: 99999;
+  padding: 20px 0;
+}
+
+.content {
+  width: $desktop-width;
+}
+
+.contentWrapper {
+  @extend .wrapper;
 }
 
 .heroWrapper {
+  @extend .wrapper;
   margin-top: -105px;
   padding-top: 105px;
-  width: 100%;
-  flex-grow: 99999;
   background-image: url('../../static/main-hero.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   height: 700px;
-  display: flex;
-  justify-content: center;
 }
 
 .mainHero {
-  color: white;
   width: $desktop-width;
+  color: $highlight;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+
+  h1, p, h2 {
+    text-shadow: 0px 0px 5px rgba(0,0,0,0.75);
+  }
 }

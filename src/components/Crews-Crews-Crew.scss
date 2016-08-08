@@ -1,9 +1,31 @@
+@import "../theme/base.scss";
+
 .crew {
   display: flex;
   justify-content: center;
   width: 150px;
   word-break: break-all;
   hyphens: auto;
+
+  a {
+    color: $grey;
+  }
+
+  a:visited {
+    color: $grey;
+  }
+}
+
+.crewActive {
+  @extend .crew;
+
+  a:visited {
+    color: $highlight;
+  }
+
+  a {
+    color: $highlight;
+  }
 }
 
 .deleteIcon {
