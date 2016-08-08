@@ -106,9 +106,12 @@ export default class Header extends Component {
         }
         {!user &&
           <div
+            className={classes.footerWrapper}
             onClick={::this.showModalHandler}
           >
-            admin login
+            <div className={classes.footer}>
+              admin login
+            </div>
           </div>
         }
       </div>

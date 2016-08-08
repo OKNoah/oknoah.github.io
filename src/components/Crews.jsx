@@ -70,7 +70,10 @@ export default class Crews extends Component {
 
     return (
       <div className={classes.wrapper}>
-        <CrewsList crews={crews} />
+        <CrewsList
+          params={this.props.params}
+          crews={crews}
+        />
         <div className={classes.members}>
           <Members
             members={members}

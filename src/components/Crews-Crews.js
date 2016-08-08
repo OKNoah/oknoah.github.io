@@ -22,6 +22,7 @@ import modalClasses from './Crews-Crews-Add.scss'
 )
 export default class CrewsList extends Component {
   static propTypes = {
+    params: PropTypes.object,
     crews: PropTypes.array,
     user: PropTypes.object,
     addCrew: PropTypes.func,
@@ -59,20 +60,26 @@ export default class CrewsList extends Component {
   }
 
   render () {
-    const {crews, user} = this.props
+    const {crews, user, params} = this.props
 
     return (
       <div className={classes.crews}>
         <Crew
           name="All"
           slug=""
+          active={!params.crew ? true : false}
         />
         { crews.map((crew, index) => {
+          const eachCrew = crew.slug || 'all'
+          const currentCrew = params.crew ? params.crew.toLowerCase() : 'all'
+          const isActive = (eachCrew === currentCrew)
+
           return (
             <Crew
               key={index}
               name={crew.name}
               slug={crew.slug}
+              active={isActive}
               onDeleteCrew={::this.deleteCrewHandler}
             />
           )

@@ -1,4 +1,5 @@
 import React, {Component, PropTypes} from 'react'
+import differenceBy from 'lodash/differenceBy'
 
 import classes from './Crews-Members-Member-CrewsMenu.scss'
 
@@ -24,11 +25,13 @@ export default class CrewsMenu extends Component {
   render () {
     const {crews, membersCrews, name} = this.props
 
+    const unjoinedCrews = differenceBy(crews, membersCrews, 'slug')
+
     return (
       <div className={classes.crewsMenu}>
         <h2>Add {this.props.name} to crews</h2>
         <div className={classes.crewContainer}>
-          {crews && crews.map((crew, index) => (
+          {crews && unjoinedCrews.map((crew, index) => (
             <div
               key={index}
               className={classes.addCrew}
