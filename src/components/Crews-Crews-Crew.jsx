@@ -28,7 +28,7 @@ export default class Crew extends Component {
         {this.props.user &&
           <i
             className={classes.deleteIcon + ' fa fa-trash'}
-            alt="Delete this crew"
+            title="Delete this crew"
             onClick={::this.deleteCrewHandler}
           />
         }

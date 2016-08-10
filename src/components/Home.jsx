@@ -1,4 +1,5 @@
 import React, {Component, PropTypes} from 'react'
+import { browserHistory } from 'react-router';
 
 import classes from './Home.scss'
 
@@ -7,17 +8,28 @@ export default class Home extends Component {
     user: PropTypes.object
   }
 
+  heroCTAClickHander () {
+    browserHistory.push('/crews')
+  }
+
   render () {
     return (
       <div>
         <div className={classes.heroWrapper}>
           <div className={classes.mainHero}>
             <h1>Welcome to SPYA</h1>
-            <h2>The Screen Production Yukon Association (SPYA), formerly known as the Northern Film and Video Industry Association (NFVIA), represents the screen-based media production industry and its workers in Yukon</h2>
+            <button
+              onClick={::this.heroCTAClickHander}
+              className={classes.heroCTA}
+            >
+              <i className="fa fa-users" />
+              {'  Meet our world-class crew members'}
+            </button>
           </div>
         </div>
         <div className={classes.contentWrapper}>
           <div className={classes.content}>
+            <p>The Screen Production Yukon Association (SPYA), formerly known as the Northern Film and Video Industry Association (NFVIA), represents the screen-based media production industry and its workers in Yukon</p>
             <p>We work closely with producers and production companies from around the world and we endeavour to meet the needs of productions taking place here by providing crew, equipment and advice on services all year around.</p>
             <p>SPYA advocates on behalf of its members and provides a broad range of professional development opportunities for producers and all above and below-the-line crew members.</p>
             <p>In 2014 SPYA completed a Strategic Plan for the coming 5-years of developing the association and fostering the Yukon industry.</p>

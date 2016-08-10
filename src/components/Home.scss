@@ -10,6 +10,11 @@
 
 .content {
   width: $desktop-width;
+
+  p {
+    font-size: 34px;
+    padding: 70px 0px;
+  }
 }
 
 .contentWrapper {
@@ -25,16 +30,27 @@
   background-position: center;
   background-repeat: no-repeat;
   height: 700px;
+  border-bottom: 8px solid $highlight;
 }
 
 .mainHero {
   width: $desktop-width;
-  color: $highlight;
+  color: white;
   display: flex;
   justify-content: flex-end;
   flex-direction: column;
+  padding-bottom: 75px;
 
   h1, p, h2 {
-    text-shadow: 0px 0px 5px rgba(0,0,0,0.75);
+    text-shadow: 0px 0px 5px rgba(0,0,0,1);
   }
+}
+
+.heroCTA {
+  background: white;
+  color: $highlight;
+  border: none;
+  border-radius: 3px;
+  height: 50px;
+  width: 350px;
 }
