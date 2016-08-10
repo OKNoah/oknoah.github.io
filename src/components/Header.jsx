@@ -74,6 +74,12 @@ export default class Header extends Component {
             <div className={classes.navigation}>
               <Link
                 className={classes.navItem}
+                to="/"
+              >
+                Home
+              </Link>
+              <Link
+                className={classes.navItem}
                 to="/crews"
               >
                 Crews
@@ -106,12 +112,13 @@ export default class Header extends Component {
         }
         {!user &&
           <div
-            className={classes.footerWrapper}
             onClick={::this.showModalHandler}
           >
-            <div className={classes.footer}>
-              admin login
-            </div>
+            <i
+              className="fa fa-lock"
+              title="Login to administer the site"
+            />
+            {' Admin login'}
           </div>
         }
       </div>

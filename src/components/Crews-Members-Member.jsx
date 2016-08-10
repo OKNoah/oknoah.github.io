@@ -92,21 +92,25 @@ export default class Member extends Component {
         <div><b>{name}</b></div>
         <div>{description}</div>
         { user &&
-          <div
-            className={classes.actionContainer}
-          >
+          <div className={classes.actionContainer}>
             <div
               className={classes.action}
               onClick={::this.crewModalHandler}
             >
-              <i className="fa fa-users" alt="Edit member's crews" />
+              <i
+                className="fa fa-users"
+                title="Edit this member's crews"
+              />
             </div>
             <div
               alt="Remove member from crew"
               className={classes.actionDelete}
               onClick={crew ? ::this.leaveCrewHandler : ::this.deleteMember}
             >
-              <i className="fa fa-trash" alt="Edit member's crews" />
+              <i
+                className="fa fa-user-times"
+                title="Delete this member"
+              />
             </div>
           </div>
         }
