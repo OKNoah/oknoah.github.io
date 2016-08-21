@@ -2,13 +2,13 @@ import React, {Component, PropTypes} from 'react'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import {getMembersCrews} from 'redux/modules/membersCrews'
+import {getMembers, getCrewMembers} from 'redux/modules/members'
 
 import Window from './Window'
 import CrewsMenu from './Crews-Members-Member-CrewsMenu'
+import Photo from './Crews-Members-Member-Photo'
 
 import classes from './Crews-Members-Member.scss'
-
-import avatarPlaceholder from '../../static/avatar.png';
 
 @connect(
   state => ({
@@ -18,7 +18,9 @@ import avatarPlaceholder from '../../static/avatar.png';
     membersCrews: state.membersCrews.data
   }),
   dispatch => bindActionCreators({
-    getMembersCrews
+    getMembersCrews,
+    getCrewMembers,
+    getMembers
   }, dispatch)
 )
 export default class Member extends Component {
@@ -26,12 +28,15 @@ export default class Member extends Component {
     name: PropTypes.string,
     slug: PropTypes.string,
     description: PropTypes.string,
+    photo: PropTypes.string,
     user: PropTypes.object,
     onJoinCrew: PropTypes.func,
     onLeaveCrew: PropTypes.func,
     onDeleteMember: PropTypes.func,
     params: PropTypes.object,
     getMembersCrews: PropTypes.func,
+    getCrewMembers: PropTypes.func,
+    getMembers: PropTypes.func,
     members: PropTypes.array,
     crews: PropTypes.array,
     membersCrews: PropTypes.array
@@ -40,7 +45,8 @@ export default class Member extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      showCrewsModal: false
+      showCrewsModal: false,
+      showEditPhoto: false
     }
   }
 
@@ -67,7 +73,7 @@ export default class Member extends Component {
   }
 
   deleteMember () {
-    if (confirm('Are you sure you want to delete this member and remove them from all crews? You can remove them from a single crew by going to a crew page and clicking the "X" there.')) {
+    if (confirm('Are you sure you want to delete this member and remove them from all crews?')) {
       this.props.onDeleteMember(this.props.slug)
     }
   }
@@ -83,16 +89,55 @@ export default class Member extends Component {
     }
   }
 
+  toggleEditPhotoHandler () {
+    this.setState({ showEditPhoto: !this.state.showEditPhoto })
+  }
+
+  photoEditSuccessHandler () {
+    const {crew} = this.props.params
+    if (crew) {
+      this.props.getCrewMembers(crew)
+    } else if (!crew) {
+      this.props.getMembers()
+    }
+  }
+
   render () {
-    const {name, description, user, slug, params: {crew}} = this.props
+    const {
+      name,
+      description,
+      user,
+      slug,
+      photo,
+      params: {crew}
+    } = this.props
 
     return (
       <div className={classes.member}>
-        <img src={avatarPlaceholder} alt="User photo" />
-        <div><b>{name}</b></div>
-        <div>{description}</div>
+        <Photo
+          onPhotoEditSuccess={::this.photoEditSuccessHandler}
+          onToggleEditMode={::this.toggleEditPhotoHandler}
+          showEditPhoto={this.state.showEditPhoto}
+          photo={photo}
+          slug={slug}
+        />
+        {!this.state.showEditPhoto &&
+          <div>
+            <div><b>{name}</b></div>
+            <div>{description}</div>
+          </div>
+        }
         { user &&
           <div className={classes.actionContainer}>
+            <div
+              className={classes.action}
+              onClick={::this.toggleEditPhotoHandler}
+            >
+              <i
+                className="fa fa-picture-o"
+                title="Edit this member's photo"
+              />
+            </div>
             <div
               className={classes.action}
               onClick={::this.crewModalHandler}

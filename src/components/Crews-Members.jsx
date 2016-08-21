@@ -52,6 +52,7 @@ export default class Members extends Component {
             description={member.description}
             slug={member.slug}
             params={params}
+            photo={member.photo}
             onJoinCrew={this.props.onJoinCrew}
             onLeaveCrew={this.props.onLeaveCrew}
             onDeleteMember={this.props.onDeleteMember}
