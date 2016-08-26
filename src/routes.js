@@ -8,8 +8,8 @@ export default () => {
   return (
     <Route path="/" component={Header}>
       <IndexRoute component={Home} />
-      <Route path="/crews" component={Crews} />
-      <Route path="/crews/:crew" component={Crews} />
+      <Route path="/portfolio" component={Crews} />
+      <Route path="/portfolio/:portfolio" component={Crews} />
     </Route>
   );
 }

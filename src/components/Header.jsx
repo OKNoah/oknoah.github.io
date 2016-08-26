@@ -10,8 +10,6 @@ import {login, register, logout, getUser} from 'redux/modules/auth'
 import classes from './Header.scss'
 import loginClasses from './Login.scss'
 
-import logo from '../../static/logo.png'
-
 @connect(
   state => ({
     user: state.auth.data
@@ -68,7 +66,7 @@ export default class Header extends Component {
           <div className={classes.header}>
             <div className={classes.logo}>
               <Link to="/">
-                <img src={logo} alt="" />
+                Rainy Code
               </Link>
             </div>
             <div className={classes.navigation}>
@@ -80,9 +78,9 @@ export default class Header extends Component {
               </Link>
               <Link
                 className={classes.navItem}
-                to="/crews"
+                to="/portfolio"
               >
-                Crews
+                Portfolio
               </Link>
               {user &&
                 <div

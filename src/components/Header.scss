@@ -40,7 +40,13 @@
 }
 
 .logo {
+  font-size: 3em;
+  font-weight: 200;
   flex-grow: 1;
+
+  a {
+    color: white;
+  }
 }
 
 .navigation {
