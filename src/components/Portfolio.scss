@@ -1,0 +1,40 @@
+.portfolio {
+	
+}
+
+.column {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.imageContainer {
+	 img {
+		 	height: 461px;
+	 }
+}
+
+.slipstream {
+	@extend .column;
+	color: #5CD298;
+}
+
+.diffchecker {
+	@extend .column;
+	color: #00B763;
+	font-family: monaco, courier;
+}
+
+.functin {
+	@extend .column;
+	color: #FF2D10;
+
+	h1 {
+		font-weight: 300;
+	}
+}
+
+.description {
+	max-width: 663px;
+	text-align: center;
+}

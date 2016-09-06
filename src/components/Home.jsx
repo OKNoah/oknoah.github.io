@@ -1,7 +1,10 @@
 import React, {Component, PropTypes} from 'react'
-import { browserHistory } from 'react-router';
+import {Link} from 'react-router'
+import { browserHistory } from 'react-router'
 
 import classes from './Home.scss'
+
+import logo from '../../static/rainycode-logo.png'
 
 export default class Home extends Component {
   static propTypes = {
@@ -9,28 +12,31 @@ export default class Home extends Component {
   }
 
   heroCTAClickHander () {
-    browserHistory.push('/crews')
+    browserHistory.push('/portfolio')
   }
 
   render () {
     return (
-      <div>
-        <div className={classes.heroWrapper}>
-          <div className={classes.mainHero}>
+      <div className={classes.heroWrapper}>
+        <div className={classes.mainHero}>
+          <div className={classes.logoContainer}>
+            <img
+              src={logo}
+              alt="Rainy Code Logo"
+              className={classes.logo}
+            />
             <h1>RainyCode</h1>
+          </div>
+          <h2>No start ups, just disruption.</h2>
+          <Link
+            to="/portfolio"
+          >
             <button
-              onClick={::this.heroCTAClickHander}
               className={classes.heroCTA}
             >
-              <i className="fa folder-open" />
-              {' See the portfolio'}
+              See the portfolio
             </button>
-          </div>
-        </div>
-        <div className={classes.contentWrapper}>
-          <div className={classes.content}>
-            <p>Kill the rich now.</p>
-          </div>
+          </Link>
         </div>
       </div>
     );

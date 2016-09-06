@@ -1,15 +1,14 @@
 import React from 'react'
 import { Route, IndexRoute } from 'react-router'
-import Header from 'components/Header'
-import Crews from 'components/Crews'
+import Index from 'components/Index'
+import Portfolio from 'components/Portfolio'
 import Home from 'components/Home'
 
 export default () => {
   return (
-    <Route path="/" component={Header}>
+    <Route path="/" component={Index}>
       <IndexRoute component={Home} />
-      <Route path="/portfolio" component={Crews} />
-      <Route path="/portfolio/:portfolio" component={Crews} />
+      <Route path="/portfolio" component={Portfolio} />
     </Route>
   );
 }

@@ -39,7 +39,7 @@
   height: 100%;
 }
 
-.logo {
+.logoContainer {
   font-size: 3em;
   font-weight: 200;
   flex-grow: 1;
@@ -47,6 +47,11 @@
   a {
     color: white;
   }
+}
+
+.logo {
+  height: 63px;
+  margin-right: 20px;
 }
 
 .navigation {
