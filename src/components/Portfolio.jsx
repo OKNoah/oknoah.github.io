@@ -5,6 +5,7 @@ import SiteHeader from './Header'
 import classes from './Portfolio.scss'
 
 import functinImage from '../../static/functin.png'
+import googleImage from '../../static/didgoogleshutdown.png'
 
 export default class Portfolio extends Component {
   render () {
@@ -15,7 +16,7 @@ export default class Portfolio extends Component {
         </Header>
         <SectionsContainer
           sectionClassName="section"
-          anchors={['Slipstream', 'Diffchecker_CLI', 'functin']}
+          anchors={['slipstream', 'diffchecker', 'didgoogleshutdown', 'functin']}
           scrollBar={false}
           verticalAlign={false}
           sectionPaddingTop='50px'
@@ -48,14 +49,29 @@ export default class Portfolio extends Component {
               <p
                 className={classes.description}
               >
-                An official tool for accessing the popular diffchecker.com app via the command line. Uses node.js. <br/>
+                An official tool for accessing the popular diffchecker.com app via the command line. Uses node.js.<br/>
 
-                <a href="https://www.diffchecker.com/cli">Diffchecker CLI</a>
-                <a href="https://github.com/wali-s/diffchecker-cli"></a>
-                </p>
+                <a href="https://www.diffchecker.com/cli">Diffchecker CLI</a><br/>
+                <a href="https://github.com/wali-s/diffchecker-cli">Github</a><br/>
+                <a href="https://www.npmjs.com/package/diffchecker">NPM</a>
+              </p>
               <video className="cli-video" controls>
                 <source src="https://www.diffchecker.com/videos/diffchecker-cli.mp4" />
               </video>
+            </div>
+          </Section>
+          <Section
+            color="white"
+            verticalAlign
+          >
+            <div className={classes.google}>
+              <h1>Did Google Shut Down</h1>
+              <p className={classes.description}>Tracks the status of   Google products and services. RainyCode provides code and hosting.<br/>
+                <a href="https://didgoogleshutdown.com">DidGoogleShutDown</a>
+              </p>
+              <div className={classes.imageContainer}>
+                <img src={googleImage} alt=""/>
+              </div>
             </div>
           </Section>
           <Section
