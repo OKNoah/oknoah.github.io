@@ -30,10 +30,10 @@ export default class Portfolio extends Component {
           >
             <div className={classes.slipstream}>
               <h1>
-                  Slipstream
+                Slipstream
               </h1>
-              <p className={classes.description}>Moonlit social bookmarking app. Think Twitter with only content shares. Split into "streams": read, watch and listen for articles, videos and audio. Node and Angular. Now open source. <br/>
-                <a href="https://github.com/oknoah/slipstrea">Github</a><br/>
+              <p className={classes.description}>Moonlit social bookmarking app. Think Twitter with only content shares. Split into "streams": read, watch and listen for articles, videos and audio. Node, Angular and Mongo. Now open source and undergoing refactoring in React. <br/>
+                <a href="https://github.com/oknoah/slipstream">Github</a><br/>
               </p>
               <div className={classes.imageContainer}>
                 <img src="https://rainy-code-wp.s3.amazonaws.com/2015/08/Screen-Shot-2015-08-03-at-12.00.26-PM.png" alt="" />
