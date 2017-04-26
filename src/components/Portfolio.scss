@@ -39,6 +39,18 @@
 	}
 }
 
+.pilot {
+	@extend .column;
+	color: #053544;
+	font-family: "Gotham Rounded", "Gotham Rounded A", "Gotham Rounded B", Helvetica, Roboto, Arial, sans-serif;
+}
+
+.ndpconnect {
+	@extend .column;
+	color: white;
+	font-family: Helvetica, Roboto, Arial, sans-serif;
+}
+
 .google {
 	@extend .column;
 	h1 {

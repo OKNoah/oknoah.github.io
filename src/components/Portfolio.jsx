@@ -6,6 +6,8 @@ import classes from './Portfolio.scss'
 
 import functinImage from '../../static/functin.png'
 import googleImage from '../../static/didgoogleshutdown.png'
+import pilotImage from '../../static/pilot.png'
+import ndpImage from '../../static/ndpconnect.jpg'
 
 export default class Portfolio extends Component {
   render () {
@@ -16,7 +18,7 @@ export default class Portfolio extends Component {
         </Header>
         <SectionsContainer
           sectionClassName="section"
-          anchors={['slipstream', 'diffchecker', 'didgoogleshutdown', 'functin']}
+          anchors={['pilot', 'ndpconnect', 'functin', 'slipstream', 'diffchecker', 'didgoogleshutdown']}
           scrollBar={false}
           verticalAlign={false}
           sectionPaddingTop='50px'
@@ -24,6 +26,52 @@ export default class Portfolio extends Component {
           navigation
           arrowNavigation
         >
+          <Section
+            color="#FBFBFB"
+            verticalAlign
+          >
+            <div className={classes.pilot}>
+              <h1>
+                Pilot.io
+              </h1>
+              <p className={classes.description}>
+                Small business VOIP platform with multiple integrations, including Slack and Intercom. Dashboard created in React, back-end in Node/Express. <br />
+                <a href="https://pilot.io">Pilot.io</a><br />
+              </p>
+              <div className={classes.imageContainer}>
+                <img src={pilotImage} alt="Screenshot of Pilot.io" />
+              </div>
+            </div>
+          </Section>
+          <Section
+            color="#FF9000"
+            verticalAlign
+          >
+            <div className={classes.ndpconnect}>
+              <h1>
+                BC NDP Connect
+              </h1>
+              <p className={classes.description}>
+                Signal-boosting react-native app for iOS, with push notifications, calendar integration, list views, share buttons and more. <br />
+                <a href="https://appsto.re/ca/CbEjjb.i"> App Store</a><br />
+              </p>
+              <div className={classes.imageContainer}>
+                <img src={ndpImage} alt="Screenshot of BC NDP Connect on the App Store" />
+              </div>
+            </div>
+          </Section>
+          <Section
+            color="#F9F9F9"
+            verticalAlign
+          >
+            <div className={classes.functin}>
+              <h1>functin</h1>
+              <p className={classes.description}>Upcoming developer documentation tool. In React and Node.</p>
+              <div className={classes.imageContainer}>
+                <img src={functinImage} alt="" />
+              </div>
+            </div>
+          </Section>
           <Section
             color="#414159"
             verticalAlign
@@ -73,18 +121,6 @@ export default class Portfolio extends Component {
               </p>
               <div className={classes.imageContainer}>
                 <img src={googleImage} alt=""/>
-              </div>
-            </div>
-          </Section>
-          <Section
-            color="#F9F9F9"
-            verticalAlign
-          >
-            <div className={classes.functin}>
-              <h1>functin</h1>
-              <p className={classes.description}>Upcoming developer documentation tool. In React and Node.</p>
-              <div className={classes.imageContainer}>
-                <img src={functinImage} alt=""/>
               </div>
             </div>
           </Section>
