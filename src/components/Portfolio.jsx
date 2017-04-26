@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {SectionsContainer, Section, Header} from 'react-fullpage'
+import {SectionsContainer, Section, Header} from 'react15-fullpage'
 import SiteHeader from './Header'
 
 import classes from './Portfolio.scss'
