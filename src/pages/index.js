@@ -1,11 +1,6 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import {Link} from 'react-router'
-import Background from './Background'
-
-import classes from './Home.scss'
-
-import logo from '../../static/rainycode-logo.png'
+import Link from 'gatsby-link'
 
 export default class Home extends Component {
   static propTypes = {
@@ -15,7 +10,6 @@ export default class Home extends Component {
   render () {
     return (
       <div>
-        <Background />
         <div
           style={{
             position: 'absolute',
@@ -24,24 +18,9 @@ export default class Home extends Component {
           }}
         >
           <div
-            className={classes.logoContainer}
             style={{
               backgroundColor: 'black',
-              margin: '50px 50px 20px 50px',
-              padding: 20
-            }}
-          >
-            <img
-              src={logo}
-              alt="Rainy Code Logo"
-              className={classes.logo}
-            />
-            <h1>RainyCode</h1>
-          </div>
-          <div
-            style={{
-              backgroundColor: 'black',
-              margin: '0 50px',
+              margin: '170px 20px',
               padding: 20
             }}
           >
