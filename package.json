@@ -72,6 +72,9 @@
     }
   },
   "dependencies": {
+    "@vx/gradient": "0.0.143",
+    "@vx/pattern": "0.0.143",
+    "@vx/shape": "0.0.147",
     "autoprefixer-loader": "^3.1.0",
     "babel-core": "^6.5.2",
     "babel-eslint": "^5.0.0-beta6",
@@ -131,6 +134,8 @@
     "phantomjs": "^1.9.18",
     "phantomjs-polyfill": "0.0.1",
     "piping": "^0.3.0",
+    "popmotion": "^8.1.7",
+    "popmotion-react": "^2.1.0",
     "pretty-error": "^1.2.0",
     "prop-types": "^15.5.8",
     "react": "15.1.0",

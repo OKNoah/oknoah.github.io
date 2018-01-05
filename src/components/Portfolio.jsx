@@ -17,7 +17,7 @@ export default class Portfolio extends Component {
           <SiteHeader />
         </Header>
         <SectionsContainer
-          sectionClassName="section"
+          sectionClassName={classes.section}
           anchors={['pilot', 'ndpconnect', 'functin', 'slipstream', 'diffchecker', 'didgoogleshutdown']}
           scrollBar={false}
           verticalAlign={false}

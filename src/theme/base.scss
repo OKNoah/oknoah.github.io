@@ -13,6 +13,8 @@ body {
   background-color: #202E40;
 }
 
+$phone: "only screen and (max-width : 640px)";
+
 .modalOverlay {
   position: fixed;
   height: 100%;

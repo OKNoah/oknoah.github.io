@@ -1,10 +1,24 @@
+@import "../theme/base.scss";
+
 @font-face {
   font-family: "Product Sans";
   src: url("../theme/fonts/ProductSans-Regular.ttf") format("truetype");
 }
 
-.portfolio {
-	
+.section {
+	width: 100%;
+	display: table;
+	height: 396px;
+	max-height: 396px;
+	overflow: auto;
+	background-color: rgb(251, 251, 251);
+	padding-top: 50px;
+	padding-bottom: 50px;
+
+	@media #{$phone} {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .column {
@@ -17,6 +31,13 @@
 	 img {
 		 	height: 461px;
 	 }
+
+ 	@media #{$phone} {
+    img {
+    	width: 100%;
+    	height: auto;
+    }
+  }
 }
 
 .slipstream {
